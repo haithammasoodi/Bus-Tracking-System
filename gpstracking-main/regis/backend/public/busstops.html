@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>School Bus Tracking</title>
+    <link rel="stylesheet" href="CSS/bootstrap.min.css">
+    <style>
+      .card-content {
+          position: relative;
+          top: 35px;
+          right: 15px
+      }
+  </style>
+      <script src="js/bootstrap.bundle.min.js" defer></script>
+      <style>
+        .card-hover-effect {
+            position: relative;
+            overflow: hidden;
+        }
+    
+        .card-hover-effect .card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+    
+        .card-hover-effect:hover .card-overlay {
+            opacity: 1;
+        }
+    
+        .card-hover-effect .view-all-btn {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+    
+        .card-hover-effect:hover .view-all-btn {
+            opacity: 1;
+        }
+    </style>
+
+</head>
+<body>
+    <section>
+        <nav class="navbar bg-dark navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="main.html">
+                <img src="images/mainlogo.png" alt="Logo" width="85" height="85" class="d-inline-block align-text-center">
+                School Bus Tracking System
+            </a>  
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="main.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="busstops.html">Bus Stops</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="bustracking.html">Bus Tracking</a>
+                    </li>
+                </ul>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+            </div>
+        </div>
+        </nav>
+    </section>
+<section>
+    <div class="b-example-divider"></div>
+    <div class="container px-4 py-5" id="custom-cards">
+      <h2 class="pb-2 border-bottom">All Bus Stops</h2>
+      <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+        <div class="col">
+          <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg card-hover-effect" style="background-image:linear-gradient(to bottom,rgba(219, 243, 255, .05),rgba(0, 0, 0, 0.822)), url('images/CIT.jpeg'); background-size: 100% 100%;">
+              <div class="card-overlay"></div>
+              <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1 card-content">
+                  <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Bus 1</h3>
+                  <p class="mb-5"></p>
+                  <a href="CIT.html" class="btn btn-secondary view-all-btn mx-3">Details</a>
+                  <ul class="d-flex list-unstyled mt-auto">
+                    <li class="me-auto">
+                    </li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+  
+        <div class="col">
+          <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg card-hover-effect" style="background-image:linear-gradient(to bottom,rgba(219, 243, 255, .05),rgba(0, 0, 0, 0.822)), url('images/KMCH.jpeg'); background-size: cover;">
+            <div class="card-overlay"></div>
+            <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1 card-content">
+              <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Bus 2</h3>
+              <p class="mb-5"></p>
+              <a href="#" class="btn btn-secondary view-all-btn mx-3">Details</a>
+              <ul class="d-flex list-unstyled mt-auto">
+                <li class="me-auto">
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col">
+          <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg card-hover-effect" style="background-image:linear-gradient(to bottom,rgba(219, 243, 255, .05),rgba(0, 0, 0, 0.822)), url('images/RaceCourse.jpeg'); background-size: 100% 100%;">
+            <div class="card-overlay"></div>
+            <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1 card-content">
+              <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Bus 3</h3>
+              <p class="mb-5"></p>
+              <a href="#" class="btn btn-secondary view-all-btn mx-3">Details</a>
+              <ul class="d-flex list-unstyled mt-auto">
+                <li class="me-auto">
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg card-hover-effect" style="background-image: linear-gradient(to bottom,rgba(252, 201, 201, 0.05),rgba(13, 13, 13, 0.677)),url('images/TownHall.webp') ; background-size: 100% 100%;">
+            <div class="card-overlay"></div>
+            <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1 card-content">
+              <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Bus 4</h3>
+              <p class="mb-5"></p>
+              <a href="#" class="btn btn-secondary view-all-btn mx-3">Details</a>
+              <ul class="d-flex list-unstyled mt-auto">
+                <li class="me-auto">
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg card-hover-effect" style="background-image:linear-gradient(to bottom,rgba(219, 243, 255, .05),rgba(0, 0, 0, 0.822)), url('images/Selvapuram.jpeg'); background-size: 100% 100%;">
+            <div class="card-overlay"></div>
+            <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1 card-content">
+              <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Bus 5</h3>
+              <p class="mb-5"></p>
+              <a href="#" class="btn btn-secondary view-all-btn mx-3">Details</a>
+              <ul class="d-flex list-unstyled mt-auto">
+                <li class="me-auto">
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg card-hover-effect" style="background-image:linear-gradient(to bottom,rgba(219, 243, 255, .05),rgba(0, 0, 0, 0.822)), url('images/GandhiPark.webp'); background-size: 100% 100%;">
+            <div class="card-overlay"></div>
+            <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1 card-content">
+              <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Bus 6</h3>
+              <p class="mb-5"></p>
+              <a href="#" class="btn btn-secondary view-all-btn mx-3">Details</a>
+              <ul class="d-flex list-unstyled mt-auto">
+                <li class="me-auto">
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="b-example-divider"></div>
+  <div class="container">
+      <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+          <div class="col-md-4 d-flex align-items-center">
+              <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                  <img src="images/mainlogo.png" alt="Logo" width="85" height="85"
+                  class="d-inline-block align-text-center" />
+              </a>
+              <span class="mb-3 mb-md-0 text-muted">&copy; Copyright 2025 School Bus Tracking System.
+                  </span>
+          </div>
+          <div class="col-md-4 text-muted text-end">
+              <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                  <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use
+                                  xlink:href="#twitter" /></svg></a></li>
+                  <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use
+                                  xlink:href="#instagram" /></svg></a></li>
+                  <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use
+                                  xlink:href="#facebook" /></svg></a></li>
+              </ul>
+          </div>
+      </footer>
+  </div>
+</section>
+</body>
+</html>

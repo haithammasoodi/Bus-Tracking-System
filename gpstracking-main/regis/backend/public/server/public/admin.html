@@ -1,0 +1,93 @@
+<!-- public/admin.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bus Admin Panel</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f9fc;
+      margin: 0;
+    }
+    header {
+      background: #343a40;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    section {
+      padding: 2rem;
+    }
+    h2 {
+      color: #333;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    th, td {
+      padding: 0.75rem;
+      border: 1px solid #ddd;
+      text-align: center;
+    }
+    th {
+      background: #007BFF;
+      color: white;
+    }
+    tr:nth-child(even) {
+      background: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🛠️ Admin Dashboard</h1>
+    <p>View boarding logs and manage routes</p>
+  </header>
+
+  <section>
+    <h2>🧾 Boarding Logs</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Student ID</th>
+          <th>Time</th>
+        </tr>
+      </thead>
+      <tbody id="logs">
+        <!-- Filled dynamically -->
+      </tbody>
+    </table>
+  </section>
+
+  <script>
+    async function updateLogs() {
+      try {
+        const res = await fetch('/logs');
+        const data = await res.json();
+
+        const table = document.getElementById('logs');
+        table.innerHTML = ''; // Clear previous rows
+
+        data.forEach(row => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td>${row.id}</td>
+            <td>${row.student_id}</td>
+            <td>${new Date(row.timestamp).toLocaleString()}</td>
+          `;
+          table.appendChild(tr);
+        });
+      } catch (err) {
+        console.error("Failed to fetch logs:", err);
+      }
+    }
+
+    setInterval(updateLogs, 10000); // Refresh every 10 sec
+    window.onload = updateLogs;
+  </script>
+</body>
+</html>

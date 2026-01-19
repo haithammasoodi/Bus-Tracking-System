@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smart School Bus Tracker</title>
+  <link rel="stylesheet" href="CSS/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Smart School Bus Tracker</h1>
+    <p>Track your child's school bus in real-time</p>
+  </header>
+
+  <main>
+    <div id="map"></div>
+    <div class="status">
+      <p id="location-info">Fetching latest bus location...</p>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 SmartBus System | Parent/Student Portal
+  </footer>
+
+  <script>
+    let map, marker;
+
+    async function updateLocation() {
+      try {
+        const res = await fetch('/getLatestLocation');
+        const data = await res.json();
+
+        const lat = parseFloat(data.latitude);
+        const lng = parseFloat(data.longitude);
+
+        if (!isNaN(lat) && !isNaN(lng)) {
+          const position = { lat, lng };
+          document.getElementById('location-info').textContent =
+            `Bus currently at: ${lat.toFixed(5)}, ${lng.toFixed(5)}`;
+
+          if (!map) {
+            map = new google.maps.Map(document.getElementById("map"), {
+              zoom: 16,
+              center: position
+            });
+
+            marker = new google.maps.Marker({
+              position,
+              map,
+              title: "School Bus",
+              icon: {
+                url: "https://maps.google.com/mapfiles/ms/icons/bus.png", // yellow bus icon
+                scaledSize: new google.maps.Size(45, 45)
+              }
+            });
+          } else {
+            marker.setPosition(position);
+            map.setCenter(position);
+          }
+        }
+      } catch (err) {
+        console.error("Location fetch error:", err);
+        document.getElementById('location-info').textContent = "Unable to fetch bus location.";
+      }
+    }
+
+    function initMap() {
+      updateLocation();
+      setInterval(updateLocation, 10000); // 10 seconds update
+    }
+  </script>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiIpTcN39pelCnmRH7oaZIppq-5nfs7fA&callback=initMap">
+  </script>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>TraffoWagon</title>
+        <link rel="stylesheet" href="server/public/CSS/bootstrap.min.css" />
+        <script src="js/bootstrap.bundle.min.js" defer></script>
+    </head>
+    <body>
+        <section>
+            <nav class="navbar bg-dark navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="main.html">
+                        <img src="images/mainlogo.png" alt="Logo" width="85" height="85"
+                            class="d-inline-block align-text-center" />
+                        School Bus Tracking
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" href="main.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="busstops.html">Bus Stops</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="bustracking.html">Bus Tracking</a>
+                            </li>
+                        </ul>
+                        <form class="d-flex" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                            <button class="btn btn-outline-success" type="submit">
+                                Search
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+        </section>
+        <section>
+            <div class="container">
+            <h2>Available Bus Numbers</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Bus Number</th>
+                        <th>To</th>
+                        <th>Estimated Arrival Time</th>
+                        <th>Track Bus</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>S19</td>
+                        <td>Vellalur</td>
+                        <td>10:15 AM</td>
+                        <td><button class="btn btn-primary track-button" data-bus-number="1">Track Bus</button></td>
+                    </tr>
+                    <tr>
+                        <td>Bus Number 2</td>
+                        <td>Destination 2</td>
+                        <td>hh:mm AM/PM</td>
+                        <td><button class="btn btn-primary track-button" data-bus-number="2">Track Bus</button></td>
+                    </tr>
+                    <tr>
+                        <td>Bus Number 3</td>
+                        <td>Destination 3</td>
+                        <td>hh:mm AM/PM</td>
+                        <td><button class="btn btn-primary track-button" data-bus-number="2">Track Bus</button></td>
+                    </tr>
+                    <tr>
+                        <td>Bus Number 4</td>
+                        <td>Destination 4</td>
+                        <td>hh:mm AM/PM</td>
+                        <td><button class="btn btn-primary track-button" data-bus-number="2">Track Bus</button></td>
+                    </tr>
+                    <tr>
+                        <td>Bus Number 5</td>
+                        <td>Destination 5</td>
+                        <td>hh:mm AM/PM</td>
+                        <td><button class="btn btn-primary track-button" data-bus-number="2">Track Bus</button></td>
+                    </tr>
+                    <tr>
+                        <td>Bus Number 6</td>
+                        <td>Destination 6</td>
+                        <td>hh:mm AM/PM</td>
+                        <td><button class="btn btn-primary track-button" data-bus-number="2">Track Bus</button></td>
+                    </tr>
+                    <tr>
+                        <td>Bus Number 7</td>
+                        <td>Destination 7</td>
+                        <td>hh:mm AM/PM</td>
+                        <td><button class="btn btn-primary track-button" data-bus-number="2">Track Bus</button></td>
+                    </tr>
+                    <tr>
+                        <td>Bus Number 8</td>
+                        <td>Destination 8</td>
+                        <td>hh:mm AM/PM</td>
+                        <td><button class="btn btn-primary track-button" data-bus-number="2">Track Bus</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    const trackButtons = document.querySelectorAll('.track-button');
+                    trackButtons.forEach(button => {
+                        button.addEventListener('click', function () {
+                            const busNumber = this.getAttribute('data-bus-number');
+                            window.location.href = `bustracking.html?bus=${busNumber}`;
+                        });
+                    });
+                });
+            </script>
+        </section>
+        <section>
+            <div class="b-example-divider"></div>
+            <div class="container">
+                <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+                    <div class="col-md-4 d-flex align-items-center">
+                        <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                            <img src="images/mainlogo.png" alt="Logo" width="85" height="85"
+                            class="d-inline-block align-text-center" />
+                        </a>
+                        <span class="mb-3 mb-md-0 text-muted">&copy; Copyright 2025 School Bus Tracking System.
+                            </span>
+                    </div>
+                    <div class="col-md-4 text-muted text-end">
+                        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                            <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use
+                                            xlink:href="#twitter" /></svg></a></li>
+                            <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use
+                                            xlink:href="#instagram" /></svg></a></li>
+                            <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use
+                                            xlink:href="#facebook" /></svg></a></li>
+                        </ul>
+                    </div>
+                </footer>
+            </div>
+        </section>
+    </body>
+</html>

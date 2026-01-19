@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>School Bus Tracking</title>
+        <link rel="stylesheet" href="CSS/bootstrap.min.css" />
+        <script src="JS/bootstrap.bundle.min.js" defer></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <style>
+            .custom-dropdown {
+                background-color: #333;
+            }
+    
+            .custom-dropdown .dropdown-item {
+                color: #fff; 
+            }
+    
+            .custom-dropdown .dropdown-item:hover {
+                background-color: #555;
+            }
+    
+            .custom-dropdown .dropdown-item.active {
+                background-color: #007bff; 
+            }
+    
+            .custom-dropdown .dropdown-toggle::after {
+                border-top-color: #fff;
+            }
+        </style>
+        <style>
+            .card-content {
+                position: relative;
+                top: 35px;
+                right: 15px
+            }
+        </style>
+            <script src="js/bootstrap.bundle.min.js" defer></script>
+            <style>
+              .card-hover-effect {
+                  position: relative;
+                  overflow: hidden;
+              }
+          
+              .card-hover-effect .card-overlay {
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  background-color: rgba(0, 0, 0, 0.5);
+                  opacity: 0;
+                  transition: opacity 0.3s ease-in-out;
+              }
+          
+              .card-hover-effect:hover .card-overlay {
+                  opacity: 1;
+              }
+          
+              .card-hover-effect .view-all-btn {
+                  position: absolute;
+                  top: 40%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                  opacity: 0;
+                  transition: opacity 0.3s ease-in-out;
+              }
+          
+              .card-hover-effect:hover .view-all-btn {
+                  opacity: 1;
+              }
+          </style>
+    </head>
+    
+    <body>
+        <section>
+            <nav class="navbar bg-dark navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="main.html">
+                        <img src="images/mainlogo.png" alt="Logo" width="85" height="85"
+                            class="d-inline-block align-text-center" />
+                        School Bus Tracking 
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="main.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="busstops.html">Bus Stops</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="http://localhost:3000/index.html">Bus Tracking</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="main.html">Log Out</a>
+                            </li>
+                        </ul>
+                        <form class="d-flex" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                            <button class="btn btn-outline-success" type="submit">
+                                Search
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+        </section>
+        <section>
+            <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-interval="8000">
+                        <img src="images/slide1.jpeg" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h2 id="slideLabel" class="display-6">Real-Time Bus Tracking</h2>
+                            <p id="slideContent">
+                                Track your bus in real time with our state-of-the-art tracking system. Stay informed about your bus's current location, estimated arrival time, and more.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/slide2.jpg" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h2>Stay Informed Anywhere, Anytime</h2>
+                            <p>
+                                With our bus tracking service, you can explore the city's attractions with confidence. Get live updates on your bus's whereabouts and plan your journey conveniently.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+    
+            <div class="spinner-border text-light" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </section>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var slideLabel = document.querySelector('#slideLabel');
+                var slideContent = document.querySelector('#slideContent');
+        
+                var initialData = {
+                    label: 'Real-Time Bus Tracking',
+                    content: 'Track your bus in real time with our state-of-the-art tracking system. Stay informed about your bus current location, estimated arrival time, and more.'
+                };
+        
+                var slideData = [
+                    {
+                        label: 'Real-Time Bus Tracking',
+                        content: 'Click on the button to check the location',
+                        buttonLabel: 'Track My Bus',
+                        buttonLink: 'http://localhost:3000/index.html'
+                    },
+                ];
+        
+                var carousel = new bootstrap.Carousel(document.querySelector('#carouselExampleCaptions'));
+                var activeSlideIndex = 0;
+        
+                carousel._element.addEventListener('slide.bs.carousel', function (event) {
+                    activeSlideIndex = event.to;
+                    if (activeSlideIndex === 0) {
+                        slideLabel.textContent = initialData.label;
+                        slideContent.innerHTML = initialData.content;
+                    } else {
+                        slideLabel.textContent = slideData[activeSlideIndex - 1].label;
+                        slideContent.innerHTML = slideData[activeSlideIndex - 1].content +
+                            '<br><a href="' + slideData[activeSlideIndex - 1].buttonLink + '" class="btn btn-info btn-lg">' +
+                            slideData[activeSlideIndex - 1].buttonLabel + '</a>';
+                    }
+                });
+        
+                var textChangeInterval = 4000;
+                var timer;
+        
+                function startTextChangeTimer() {
+                    clearInterval(timer);
+                    timer = setInterval(changeTextAutomatically, textChangeInterval);
+                }
+        
+                function changeTextAutomatically() {
+                    if (activeSlideIndex === 0) {
+                        var newTextIndex = Math.floor(Math.random() * slideData.length);
+                        slideLabel.textContent = slideData[newTextIndex].label;
+                        slideContent.innerHTML = slideData[newTextIndex].content +
+                            '<br><a href="' + slideData[newTextIndex].buttonLink + '" class="btn btn-info btn-lg">' +
+                            slideData[newTextIndex].buttonLabel + '</a>';
+                    }
+                }
+        
+                carousel._element.addEventListener('slid.bs.carousel', function (event) {
+                    if (event.to === 0) {
+                        startTextChangeTimer();
+                    } else {
+                        clearInterval(timer);
+                    }
+                });
+        
+                startTextChangeTimer();
+            });
+        </script>
+        
+        <div class="b-example-divider"></div>
+        <section>
+            <div class="container px-4 py-1" id="custom-cards">
+            <h2 class="pb-2 border-bottom ">Nearest Bus Stops
+                <a class="float-end" href="busstops.html" style="font-size: large; padding-top:15px;">See more...</a>
+            </h2>
+            <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-3 py-5">
+                <div class="col">
+                  <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg card-hover-effect" style="background-image:linear-gradient(to bottom,rgba(219, 243, 255, .05),rgba(0, 0, 0, 0.822)), url('images/CIT.jpeg'); background-size: 100% 100%;">
+                      <div class="card-overlay"></div>
+                      <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1 card-content">
+                          <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Stop 1</h3>
+                          <p class="mb-5"></p>
+                          <a href="CIT.html" class="btn btn-secondary view-all-btn mx-3">Details</a>
+                          <ul class="d-flex list-unstyled mt-auto">
+                            <li class="me-auto">
+                            </li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+          
+                <div class="col">
+                  <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg card-hover-effect" style="background-image:linear-gradient(to bottom,rgba(219, 243, 255, .05),rgba(0, 0, 0, 0.822)), url('images/KMCH.jpeg'); background-size: cover;">
+                    <div class="card-overlay"></div>
+                    <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1 card-content">
+                      <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Stop 2</h3>
+                      <p class="mb-5"></p>
+                      <a href="#" class="btn btn-secondary view-all-btn mx-3">Details</a>
+                      <ul class="d-flex list-unstyled mt-auto">
+                        <li class="me-auto">
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+               
+                <div class="col">
+                  <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg card-hover-effect" style="background-image: linear-gradient(to bottom,rgba(219, 243, 255, .05),rgba(0, 0, 0, 0.822)), url('images/RaceCourse.jpeg'); background-size: 100% 100%;">
+                    <div class="card-overlay"></div>
+                    <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1 card-content">
+                      <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Stop 3</h3>
+                      <p class="mb-5"></p>
+                      <a href="#" class="btn btn-secondary view-all-btn mx-3">Details</a>
+                      <ul class="d-flex list-unstyled mt-auto">
+                        <li class="me-auto">
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+            <div class="b-example-divider"></div>
+            <div class="container">
+                <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+                    <div class="col-md-4 d-flex align-items-center">
+                        <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                            <img src="images/mainlogo.png" alt="Logo" width="85" height="85"
+                            class="d-inline-block align-text-center" />
+                        </a>
+                        <span class="mb-3 mb-md-0 text-muted">&copy; Copyright 2025 School Bus Tracking System.
+                            </span>
+                    </div>
+                    <div class="col-md-4 text-muted text-end">
+                        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                            <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use
+                                            xlink:href="#twitter" /></svg></a></li>
+                            <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use
+                                            xlink:href="#instagram" /></svg></a></li>
+                            <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use
+                                            xlink:href="#facebook" /></svg></a></li>
+                        </ul>
+                    </div>
+                </footer>
+            </div>
+        </section>
+    </body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>TraffoWagon</title>
+    <link rel="stylesheet" type="text/css" href="CSS/styles2.css">
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiIpTcN39pelCnmRH7oaZIppq-5nfs7fA&callback=initMap"></script><!-- add the google maps api key here -->
+    <link rel="stylesheet" href="CSS/bootstrap.min.css" />
+    <script src="js/bootstrap.bundle.min.js" defer></script>
+</head>
+<body>
+    <section>
+        <nav class="navbar bg-dark navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="main.html">
+                    <img src="images/mainlogo.png" alt="Logo" width="75" height="75"
+                        class="d-inline-block align-text-center" />
+                    School Bus Tracking
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="main.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="busstops.html">Bus Stops</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="bustracking.html">Bus Tracking</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                        <button class="btn btn-outline-success" type="submit">
+                            Search
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </section>
+    <section>
+    <div id="map"></div>
+    <script>
+        function initMap() {
+            const map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 0, lng: 0 }, 
+                zoom: 10,
+            });
+            let markers = [];
+            function updateLocation() {
+                fetch('http://localhost:3000/getLocation')
+                .then(response => response.json())
+                .then(data => {
+                    markers.forEach(marker => marker.setMap(null));
+                    markers = [];
+                    const latestLocation = data[data.length - 1];
+                    if (latestLocation) {
+                        const latLng = new google.maps.LatLng(latestLocation.latitude, latestLocation.longitude);
+                        const marker = new google.maps.Marker({
+                            position: latLng,
+                            map: map,
+                            title: 'Bus Location',
+                        });
+                        map.setCenter(latLng);
+                        markers.push(marker);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching location data:', error);
+                });
+            }
+            updateLocation();
+            setInterval(updateLocation, 10000);
+        }
+    </script>
+    </section>
+    <section>
+        <div class="b-example-divider"></div>
+        <div class="container">
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+                <div class="col-md-4 d-flex align-items-center">
+                    <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                        <img src="images/mainlogo.png" alt="Logo" width="85" height="85"
+                        class="d-inline-block align-text-center" />
+                    </a>
+                    <span class="mb-3 mb-md-0 text-muted">&copy; Copyright 2025 School Bus Tracking System.
+                        </span>
+                </div>
+                <div class="col-md-4 text-muted text-end">
+                    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use
+                                        xlink:href="#twitter" /></svg></a></li>
+                        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use
+                                        xlink:href="#instagram" /></svg></a></li>
+                        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use
+                                        xlink:href="#facebook" /></svg></a></li>
+                    </ul>
+                </div>
+            </footer>
+        </div>
+    </section>
+</body>
+</html>
