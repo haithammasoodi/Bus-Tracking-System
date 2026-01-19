@@ -1,6 +1,6 @@
-# TraffoWagon
+# School Bus Tracking
 
-TraffoWagon is a real-time bus tracking and management system that allows users to locate buses, track routes, and explore nearby bus stops using a user-friendly interface.
+School Bus Tracking is a real-time bus tracking and management system that allows users to locate buses, track routes, register attendance through fingerprint and explore nearby bus stops using a user-friendly interface.
 
 ---
 
@@ -9,6 +9,9 @@ TraffoWagon is a real-time bus tracking and management system that allows users 
 ### Real-Time Bus Tracking
 - Track buses live on a map with accurate GPS updates.
 - Provides estimated arrival times and live location data.
+
+### Real-Time Attendance
+- Track student attendance in real time
 
 ### Bus Stops Information
 - Explore all nearby bus stops with details and schedules.
@@ -40,8 +43,8 @@ TraffoWagon is a real-time bus tracking and management system that allows users 
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/your-repo/traffowagon.git
-   cd traffowagon
+   git clone https://github.com/your-repo/bustracking.git
+   cd bustracking
 2. **Install the dependencies**:
    ```bash
    npm install
@@ -126,7 +129,10 @@ TraffoWagon is a real-time bus tracking and management system that allows users 
 
 2. **Open main.html in a web browser.**
 
-3. **Explore the app**:
+3. **Scan the Finger on the fingerprint scanner**
+   - Scan the finger for registering the attendace.
+
+5. **Explore the app**:
    - Use the navigation bar to locate buses, view nearby bus stops, or explore bus stop details.
 
 ---
@@ -134,7 +140,6 @@ TraffoWagon is a real-time bus tracking and management system that allows users 
 ## Future Enhancements
 
 - Add user dashboards to save favorite routes or stops.
-- Enable booking functionality with integrated payment gateways.
 - Enhance security for user authentication.
 - Provide push notifications for bus arrivals and updates.
 
@@ -148,7 +153,6 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## Credits
 
-- Developed by **Shah Humayun Bashir**.
 - Thanks to **Bootstrap** and **Google Maps API** for enabling responsive design and real-time location tracking.
 
 
